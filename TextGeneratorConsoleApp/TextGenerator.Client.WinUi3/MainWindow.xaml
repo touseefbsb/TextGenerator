@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Window
+    x:Class="TextGenerator.Client.WinUi3.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:DefaultBindMode="TwoWay"
+    mc:Ignorable="d">
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="BaseAlt" />
+    </Window.SystemBackdrop>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid
+            Margin="16,16,16,8"
+            Padding="6"
+            Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource SystemBaseLowColor}"
+            BorderThickness="2"
+            CornerRadius="4">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBox
+                Margin="4"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Header="Enter Template 1 Text"
+                PlaceholderText="Hello {Name},\n\nWe will be glad to see you in our office in {Address.City} at {Address.Line1}.\n\nLooking forward to meeting with you!\n\n\nBest, Our company."
+                Text="{x:Bind ViewModel.Template1}" />
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBox
+                            Margin="4"
+                            Header="Name"
+                            Text="{x:Bind ViewModel.DataModel1.Name}" />
+                        <TextBox
+                            Grid.Row="1"
+                            Margin="4"
+                            Header="City"
+                            Text="{x:Bind ViewModel.DataModel1.Address.City}" />
+                        <TextBox
+                            Grid.Row="2"
+                            Margin="4"
+                            Header="Line1"
+                            Text="{x:Bind ViewModel.DataModel1.Address.Line1}" />
+                    </Grid>
+                </ScrollViewer>
+                <Button
+                    Grid.Column="1"
+                    Width="200"
+                    Margin="4"
+                    VerticalAlignment="Stretch"
+                    Command="{x:Bind ViewModel.Form1SubmittedCommand, Mode=OneWay}"
+                    Content="Submit"
+                    Style="{ThemeResource AccentButtonStyle}" />
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Margin="4" Text="Generated Text" />
+                <Border
+                    Grid.Row="1"
+                    Margin="4"
+                    VerticalAlignment="Stretch"
+                    Background="{ThemeResource SystemBaseLowColor}"
+                    CornerRadius="4">
+                    <ScrollViewer Margin="4">
+                        <TextBlock Text="{x:Bind ViewModel.Output1, Mode=OneWay}" TextWrapping="WrapWholeWords" />
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            Margin="16,8,16,16"
+            Padding="6"
+            Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource SystemBaseLowColor}"
+            BorderThickness="2"
+            CornerRadius="4">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBox
+                Margin="4"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Header="Enter Template 2 Text"
+                PlaceholderText="Welcome {Name} to Nix Technologies, We are writing you this email to confirm your selection in our {Department.Name} department and section will be {Department.Section.Name}."
+                Text="{x:Bind ViewModel.Template2}" />
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBox
+                            Margin="4"
+                            Header="Name"
+                            Text="{x:Bind ViewModel.DataModel2.Name}" />
+                        <TextBox
+                            Grid.Column="1"
+                            Margin="4"
+                            Header="Experience (Years)"
+                            InputScope="Number"
+                            Text="{x:Bind ViewModel.DataModel2.Experience}" />
+                        <TextBox
+                            Grid.Row="1"
+                            Margin="4"
+                            Header="Employee Id"
+                            Text="{x:Bind ViewModel.DataModel2.EmployeeId}" />
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="4"
+                            Header="Department Name"
+                            Text="{x:Bind ViewModel.DataModel2.Department.Name}" />
+                        <TextBox
+                            Grid.Row="2"
+                            Margin="4"
+                            Header="Section Name"
+                            Text="{x:Bind ViewModel.DataModel2.Department.Section.Name}" />
+                        <TextBox
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="4"
+                            Header="Section Total Members"
+                            InputScope="Number"
+                            Text="{x:Bind ViewModel.DataModel2.Department.Section.MemberCount}" />
+                    </Grid>
+                </ScrollViewer>
+                <Button
+                    Grid.Column="1"
+                    Width="200"
+                    Margin="4"
+                    VerticalAlignment="Stretch"
+                    Command="{x:Bind ViewModel.Form2SubmittedCommand, Mode=OneWay}"
+                    Content="Submit"
+                    Style="{ThemeResource AccentButtonStyle}" />
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Margin="4" Text="Generated Text" />
+                <Border
+                    Grid.Row="1"
+                    Margin="4"
+                    VerticalAlignment="Stretch"
+                    Background="{ThemeResource SystemBaseLowColor}"
+                    CornerRadius="4">
+                    <ScrollViewer Margin="4">
+                        <TextBlock Text="{x:Bind ViewModel.Output2, Mode=OneWay}" TextWrapping="WrapWholeWords" />
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
