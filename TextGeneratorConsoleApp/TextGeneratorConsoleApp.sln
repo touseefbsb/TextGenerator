@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextGenerator.Client", "Tex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextGenerator.Tests", "TextGenerator.Tests\TextGenerator.Tests.csproj", "{BB7627F0-D02A-4122-BE38-2F9D7E545F0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextGenerator.Web.Api", "TextGenerator.Web.Api\TextGenerator.Web.Api.csproj", "{D33111C4-C355-483E-81EB-C02F83B1F4E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextGenerator.Web.Api", "TextGenerator.Web.Api\TextGenerator.Web.Api.csproj", "{D33111C4-C355-483E-81EB-C02F83B1F4E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextGenerator.Client.WinUi3", "TextGenerator.Client.WinUi3\TextGenerator.Client.WinUi3.csproj", "{320BB4CC-3A5D-41AE-8348-FBD2DFBE5B19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextGenerator.Client.WinUi3", "TextGenerator.Client.WinUi3\TextGenerator.Client.WinUi3.csproj", "{320BB4CC-3A5D-41AE-8348-FBD2DFBE5B19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextGenerator.Client.Swag", "TextGenerator.Client.Swag\TextGenerator.Client.Swag.csproj", "{06896A70-95D9-45ED-A92C-86654586830D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextGenerator.Client.Swag", "TextGenerator.Client.Swag\TextGenerator.Client.Swag.csproj", "{06896A70-95D9-45ED-A92C-86654586830D}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "textgenerator.client.react", "TextGenerator.Client.React\textgenerator.client.react.esproj", "{EAF605B0-ACEF-445B-8FEF-9944AB56279F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +169,30 @@ Global
 		{06896A70-95D9-45ED-A92C-86654586830D}.Release|x64.Build.0 = Release|Any CPU
 		{06896A70-95D9-45ED-A92C-86654586830D}.Release|x86.ActiveCfg = Release|Any CPU
 		{06896A70-95D9-45ED-A92C-86654586830D}.Release|x86.Build.0 = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|ARM64.Deploy.0 = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|x64.Build.0 = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|x86.Build.0 = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|ARM64.Build.0 = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|ARM64.Deploy.0 = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|x64.ActiveCfg = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|x64.Build.0 = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|x64.Deploy.0 = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|x86.ActiveCfg = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|x86.Build.0 = Release|Any CPU
+		{EAF605B0-ACEF-445B-8FEF-9944AB56279F}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

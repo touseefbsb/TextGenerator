@@ -14,15 +14,15 @@ namespace TextGenerator.Web.Api.Controllers
 
         public TextGeneratorController(ITextGeneration textGeneration) => _textGeneration = textGeneration;
 
-        [HttpGet]
+        [HttpPost]
         [Route(nameof(GenerateText))]
         public ActionResult<TextGenerationResponse> GenerateText([FromBody] TextGenerationRequest request) => GetGeneratedText(request);
 
-        [HttpGet]
+        [HttpPost]
         [Route(nameof(GenerateText2))]
         public ActionResult<TextGenerationResponse> GenerateText2([FromBody] TextGenerationRequest2 request) => GetGeneratedText(request);
 
-        private ActionResult<TextGenerationResponse> GetGeneratedText(ITextGenerationRequest request)
+        private TextGenerationResponse GetGeneratedText(ITextGenerationRequest request)
         {
             string generatedText = null;
             if (request is TextGenerationRequest textGenerationRequest)
@@ -35,7 +35,7 @@ namespace TextGenerator.Web.Api.Controllers
 
             }
             var result = generatedText.Replace("\\n", "\n");
-            return Ok(new TextGenerationResponse { Result = result });
+            return new TextGenerationResponse { Result = result };
         }
     }
 }
