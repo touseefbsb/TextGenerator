@@ -6,7 +6,7 @@ namespace TextGenerator.Api;
 public class TextGeneration : ITextGeneration
 {
     /// <summary>
-    /// Generates text by replacing placeholders in the template with values from the data model.
+    /// Generates text by replacing placeholders in the template with values from the data model. Using regex method.
     /// Please make sure that each template has a unique data model type for it and vice versa.
     /// </summary>
     /// <param name="template">The template containing placeholders.</param>
@@ -40,6 +40,92 @@ public class TextGeneration : ITextGeneration
     }
 
     /// <summary>
+    /// Generates text by replacing placeholders in the template with values from the data model. Using Split method.
+    /// Please make sure that each template has a unique data model type for it and vice versa.
+    /// </summary>
+    /// <param name="template">The template containing placeholders.</param>
+    /// <param name="dataModel">The data model containing property values.</param>
+    /// <returns>The generated text with placeholders replaced by values.</returns>
+    public string GenerateText2(string template, object dataModel)
+    {
+        // Check for null inputs
+        if (template is null || dataModel is null)
+            throw new ArgumentNullException("Template and data model cannot be null.");
+
+        // Initialize result with the template
+        string result = template;
+
+        // Define delimiters for splitting
+        char[] delimiters = { '{', '}' };
+
+        // Split the template into parts using delimiters
+        string[] parts = template.Split(delimiters);
+
+        // Iterate over odd indices to process placeholder parts
+        for (int i = 1; i < parts.Length; i += 2)
+        {
+            // Extract placeholder from parts
+            string propertyName = parts[i];
+
+            // Get the nested property value
+            var propertyValue = GetNestedPropertyValue(dataModel, propertyName);
+
+            // Replace the placeholder with the property value in the result
+            result = result.Replace("{" + propertyName + "}", propertyValue?.ToString() ?? string.Empty);
+        }
+
+        // Return the generated text
+        return result;
+    }
+
+    /// <summary>
+    /// Generates text by replacing placeholders in the template with values from the data model. Using custom parameter format method.
+    /// Please make sure that each template has a unique data model type for it and vice versa.
+    /// </summary>
+    /// <param name="template">The template containing placeholders.</param>
+    /// <param name="dataModel">The data model containing property values.</param>
+    /// <returns>The generated text with placeholders replaced by values.</returns>
+    public string GenerateText3(string template, object dataModel)
+    {
+        // Check for null inputs
+        if (template is null || dataModel is null)
+            throw new ArgumentNullException("Template and data model cannot be null.");
+
+        // Initialize result with the template
+        string result = template;
+
+        // Process placeholders until none are left in the result
+        while (result.Contains("{") && result.Contains("}"))
+        {
+            // Find the indices of the first occurrence of '{' and '}'
+            int startIndex = result.IndexOf("{");
+            int endIndex = result.IndexOf("}");
+
+            // Check for valid placeholder indices
+            if (startIndex != -1 && endIndex != -1 && endIndex > startIndex)
+            {
+                // Extract placeholder from result
+                string placeholder = result.Substring(startIndex + 1, endIndex - startIndex - 1);
+
+                // Get the nested property value
+                var propertyValue = GetNestedPropertyValue(dataModel, placeholder);
+
+                // Replace the placeholder with the property value in the result
+                result = result.Replace("{" + placeholder + "}", propertyValue?.ToString() ?? string.Empty);
+            }
+            else
+            {
+                // Break the loop if a malformed placeholder is found
+                break;
+            }
+        }
+
+        // Return the generated text
+        return result;
+    }
+
+    #region HelpingMethods
+    /// <summary>
     /// Gets the value of a nested property from the data model.
     /// </summary>
     private object GetNestedPropertyValue(object obj, string propertyName)
@@ -64,4 +150,5 @@ public class TextGeneration : ITextGeneration
         }
         return obj;
     }
+    #endregion HelpingMethods
 }
